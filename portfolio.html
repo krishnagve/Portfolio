@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Student Portfolio</title>
+  <meta name="description" content="A simple HTML/CSS portfolio template modeled after the Tech Academy example." />
+  <meta name="theme-color" content="#000000" />
+  <style>
+    /* ===== Base / Reset ===== */
+    *,*::before,*::after{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0; font-family: Georgia, "Times New Roman", Times, serif; color:#222; background:#efefef;}
+    img{max-width:100%; display:block; border-radius:12px}
+    a{color:inherit}
+    :root{
+      --black:#000; --dark:#333; --light:#f1f1f1; --mid:#6b6b6b; --brand:#111; --card:#e6e6e6; --accent:#0b5ed7;
+      --container:1100px; --radius:12px; --shadow:0 8px 24px rgba(0,0,0,.15)
+    }
+
+    .container{max-width:var(--container); margin-inline:auto; padding: 0 16px}
+    .section{padding:64px 0}
+    .section.alt{background:#dcdcdc}
+    h1,h2,h3{font-family: "Trebuchet MS", Arial, Helvetica, sans-serif; letter-spacing:.5px}
+
+    /* ===== Nav ===== */
+    header{position:sticky; top:0; z-index:50; background:#000; border-bottom:4px solid #555}
+    .nav{display:flex; gap:24px; align-items:center; padding:14px 16px; max-width:var(--container); margin:0 auto}
+    .nav a{color:#fff; text-decoration:none; padding:10px 14px; border-radius:8px; font-weight:600;}
+    .nav a:hover{background:#3a3a3a}
+    .nav a.active{background:#6e6e6e}
+
+    /* ===== Hero ===== */
+    .hero{position:relative; background:#000; color:#fff}
+    .hero__bg{position:relative; height:380px; background:url('https://images.unsplash.com/photo-1517336714731-489689fd1ca8?q=80&w=1600&auto=format&fit=crop') center/cover no-repeat; filter:grayscale(35%)}
+    .hero__overlay{position:absolute; inset:0; background:rgba(0,0,0,.55)}
+    .hero__content{position:absolute; inset:0; display:grid; place-items:center; text-align:center; padding:0 16px}
+    .hero h1{margin:0 0 12px; font-size: clamp(28px, 4.5vw, 48px); text-transform:uppercase; text-shadow:0 2px 8px rgba(0,0,0,.6)}
+    .tagline{max-width:900px; margin:0 auto; font-style:italic; line-height:1.6}
+    .intro{margin-top:16px; font-weight:700}
+    .thanks{margin-top:8px}
+    @keyframes fadeUp{from{opacity:0; transform:translateY(12px)} to{opacity:1; transform:none}}
+    .hero h1,.tagline,.intro,.thanks{animation:fadeUp .9s ease both}
+    .tagline{animation-delay:.05s}.intro{animation-delay:.1s}.thanks{animation-delay:.15s}
+
+    /* ===== Grid Utilities ===== */
+    .grid{display:grid; grid-template-columns: 1fr 1fr; gap:32px}
+    @media (max-width: 900px){.grid{grid-template-columns:1fr;}}
+
+    /* ===== About ===== */
+    .card{background:#fff; border-radius:var(--radius); padding:24px; box-shadow:var(--shadow)}
+    #about h2,#github h2,#contact h2{text-align:center; font-size:36px; margin:0 0 24px}
+    #about p{line-height:1.7}
+    .about-link{color:#0942c8; text-decoration:underline}
+
+    /* ===== GitHub block ===== */
+    .gh-logo{background:#fff; border-radius:var(--radius); padding:24px; display:grid; place-items:center; box-shadow:var(--shadow)}
+    .gh-logo img{max-width:340px}
+
+    /* ===== Contact ===== */
+    form{display:grid; gap:16px}
+    label{font-weight:700}
+    input,textarea{width:100%; padding:12px 14px; border:1px solid #c7c7c7; border-radius:10px; background:#fff}
+    textarea{min-height:140px; resize:vertical}
+    .btn{cursor:pointer; border:0; padding:12px 18px; border-radius:10px; background:#000; color:#fff; font-weight:700; letter-spacing:1px}
+    .btn:hover{background:#222}
+
+    /* ===== Footer ===== */
+    footer{padding:28px 0; text-align:center; background:#f7f7f7; color:#333}
+    footer a{color:#0b5ed7}
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="nav" aria-label="Primary">
+      <a class="active" href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#github">GitHub</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- ================= HERO ================= -->
+  <section id="home" class="hero" aria-label="Intro banner">
+    <div class="hero__bg"></div>
+    <div class="hero__overlay"></div>
+    <div class="hero__content">
+      <div class="container">
+        <h1>Tech Academy's Portfolio</h1>
+        <p class="tagline">Welcome to my portfolio — a simple one‑page site where I share my background, a few recent projects, and how to contact me.</p>
+        <p class="intro">Hi, I'm <em>Krishh</em>. I build clean, accessible user interfaces and reliable back‑end services.</p>
+        <p class="thanks">Scroll to explore my work, check out my GitHub, and feel free to reach out.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= ABOUT ================= -->
+  <section id="about" class="section">
+    <div class="container grid">
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1518791841217-8f162f1e1131?q=80&w=1600&auto=format&fit=crop" alt="Laptop and notebook on a desk" />
+      </div>
+      <div class="card">
+        <h2>About</h2>
+        <p>I am a software developer who loves to code! I enjoy building clean user interfaces and robust back-end services.</p>
+        <p>I am a graduate of <a class="about-link" href="https://learncodinganywhere.com/" target="_blank" rel="noopener">The Tech Academy</a>'s Software Developer Boot Camp, and trained in the following web and programming languages: HTML, CSS, JavaScript, SQL, C# and more.</p>
+        <p>I am a full‑stack developer and would love to work with you on your project.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= GITHUB ================= -->
+  <section id="github" class="section alt">
+    <div class="container grid">
+      <div class="card">
+        <h2>GitHub</h2>
+        <p>You can view my coding projects on my GitHub profile here:</p>
+        <p><a class="about-link" href="https://github.com/yourusername" target="_blank" rel="noopener"></a></p>krishnagve
+      </div>
+      <div class="gh-logo">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="GitHub Octocat logo" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CONTACT ================= -->
+  <section id="contact" class="section">
+    <div class="container grid">
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1529101091764-c3526daf38fe?q=80&w=1600&auto=format&fit=crop" alt="Envelope icons floating above a hand drawing" />
+      </div>
+      <div class="card">
+        <h2>Contact</h2>
+        <!-- Replace action with your Formspree endpoint (or mailto if preferred) -->
+        <form action="https://formspree.io/f/your-form-id" method="POST">
+          <div>
+            <label for="name">Name:</label>
+            <input id="name" name="name" type="text" placeholder="Please enter your name here" required />
+          </div>
+          <div>
+            <label for="email">Email:</label>
+            <input id="email" name="email" type="email" placeholder="Please enter your email here" required />
+          </div>
+          <div>
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" placeholder="Please write your message here" required></textarea>
+          </div>
+          <button class="btn" type="submit">Submit</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      © <span id="year">2025</span> Prosper Consulting Inc., <a href="https://learncodinganywhere.com/" target="_blank" rel="noopener">The Tech Academy</a>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
